@@ -1,0 +1,16 @@
+<div class="jumbotron">
+  <h1>Search Github</h1>
+</div>
+
+<div class="row marketing">
+  <h2>Search github for repositories</h2>
+  <form>
+    <input type="text" ng-model="keyword" placeholder="Type keywords for the repository"/>
+    <button ng-click="getRepositories(keyword)" type="button">Search github for repositories</button>
+  </form>
+  <p>{{keyword}}</p>
+  <section ng-repeat="repository in repositories">
+  <div ng-repeat="item in repository">
+    <h3><a href="{{item.html_url}}">{{item.name}}</a></h3>
+  </section>
+</div>
