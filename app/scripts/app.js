@@ -25,9 +25,9 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+      .when('/:keyword/:page/:userName/:repoName', {
+        templateUrl: 'views/detail.html',
+        controller: 'detailView'
       })
       .otherwise({
         redirectTo: '/'

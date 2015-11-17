@@ -1,16 +1,20 @@
 <div class="jumbotron">
-  <h1>Search Github</h1>
+  <h1><span class="red">Search</span> Github</h1>
+  <form>
+    <input class="search" type="text" ng-model="keyword" placeholder="Type keywords for the repository"/>
+    <button class="btn" type="submit" ng-click="getRepositories(keyword, 1)" type="button">Search for repositories</button>
+  </form>
 </div>
 
-<div class="row marketing">
-  <h2>Search github for repositories</h2>
-  <form>
-    <input type="text" ng-model="keyword" placeholder="Type keywords for the repository"/>
-    <button ng-click="getRepositories(keyword)" type="button">Search github for repositories</button>
-  </form>
-  <p>{{keyword}}</p>
+<div class="row marketing" ng-if="repositories">
+  <div class="pagination"><p><span ng-if="page>1"><a ng-click="getRepositories(keyword, page-1)"><< Previous page</a> | </span><a ng-click="getRepositories(keyword, page+1)">Next page >></a></p></div>
+  <h4 ng-if="repositories">Repositories Found: {{repositories.total_count}} | page {{page}}</h4>
+  <hr>
   <section ng-repeat="repository in repositories">
   <div ng-repeat="item in repository">
-    <h3><a href="{{item.html_url}}">{{item.name}}</a></h3>
+    <p><a href="#/{{keyword}}/{{page}}/{{item.full_name}}">{{item.name}}</a> by {{item.owner.login}}</p>
+    <hr>
+  </div>
   </section>
+  <div class="pagination"><p><span ng-if="page>1"><a ng-click="getRepositories(keyword, page-1)"><< Previous page</a> | </span><a ng-click="getRepositories(keyword, page+1)">Next page >></a></p></div>
 </div>

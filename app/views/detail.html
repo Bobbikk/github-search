@@ -1,0 +1,15 @@
+<div class="jumbotron">
+  <h1><span class="red">{{repositories.name}}</span> by {{repositories.owner.login}}</h1>
+</div>
+<h4 class="description">{{repositories.description}}</h4>
+<p>Created on <span class="red">{{repositories.created_at | date}}</span> | Updated on <span class="red">{{repositories.updated_at | date}}</span></p>
+<hr>
+<p>This respository has:</p>
+<ul>
+	<li><p><strong><span class="red">{{repositories.forks_count}}</span> forks</strong></p></li>
+	<li><p><strong><span class="red">{{repositories.open_issues_count}}</span> open issues</strong></p></li>
+	<li><p><strong><span class="red">{{repositories.watchers_count}}</span> watchers</strong></p></li>
+</ul>
+<p>You can read the full <a href="{{readme.html_url}}">readme</a> or visit the <a href="{{repositories.html_url}}">repository homepage</a>.</p>
+<hr>
+<p><a href="#/"><< Go back to {{keyword}} results</a></p>
